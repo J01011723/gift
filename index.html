@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthsary Gift</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(45deg, #f3e5f5, #ce93d8); /* Gradient pastel purple */
+            font-family: 'Arial', sans-serif;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.8s ease;
+        }
+
+        body:hover {
+            background: linear-gradient(45deg, #d1c4e9, #9575cd); /* Background change on hover */
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            background-color: #e1bee7; /* Soft pastel lavender */
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+            z-index: 10;
+            position: relative;
+        }
+
+        h1 {
+            color: #8e24aa; /* Rich pastel purple */
+            font-size: 36px;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        h1:hover {
+            color: #ab47bc; /* Darker purple on hover */
+        }
+
+        p {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease;
+        }
+
+        p:hover {
+            transform: scale(1.05);
+            color: #8e24aa;
+        }
+
+        .heart {
+            font-size: 90px;
+            color: #8e24aa; /* Rich pastel purple */
+            animation: heartbeat 1.5s infinite;
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .heart:hover {
+            color: #ce93d8; /* Light pastel purple on hover */
+            transform: scale(1.3);
+        }
+
+        .button {
+            padding: 12px 25px;
+            background-color: #ce93d8; /* Light pastel purple */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .button:hover {
+            background-color: #ab47bc; /* Slightly darker purple */
+            transform: scale(1.1);
+        }
+
+        .message {
+            margin-top: 30px;
+            font-size: 22px;
+            color: #8e24aa; /* Rich pastel purple */
+            display: none;
+            font-weight: 600;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Tulips Style */
+        .tulips-container {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .tulip {
+            font-size: 50px;
+            color: #9c27b0; /* Purple Tulips */
+            margin: 10px;
+            animation: popIn 0.6s ease-out;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .tulips-container .tulip:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .tulips-container .tulip:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="container">
+        <!-- Initial content -->
+        <h1 id="monthsaryTitle">Happy Monthsary!</h1>
+        <p id="celebratingText">Celebrating our Day! 💕</p>
+        
+        <!-- Open My Gift button -->
+        <button class="button" onclick="showGiftMessage()">Click here</button>
+        
+        <!-- Hidden message content -->
+        <div class="message" id="giftMessage">
+            <div class="heart" onclick="showTulips()">❤️</div>
+            <p>Thank you for being my everything! I love you baby! 💖</p>
+        </div>
+
+        <!-- Tulips content -->
+        <div class="tulips-container" id="tulipsContainer">
+            <div class="tulip">🌷 🌷 🌷</div>
+        </div>
+    </div>
+
+    <script>
+        // Function to show the gift message when the "Open My Gift" button is clicked
+        function showGiftMessage() {
+            // Hide initial content
+            document.getElementById('monthsaryTitle').style.display = 'none';
+            document.getElementById('celebratingText').style.display = 'none';
+            document.querySelector('.button').style.display = 'none';
+            
+            // Show the gift message
+            const message = document.getElementById("giftMessage");
+            message.style.display = "block"; // Display message
+        }
+
+        // Function to show tulips when the heart is clicked
+        function showTulips() {
+            // Hide the gift message
+            document.getElementById('giftMessage').style.display = 'none';
+            
+            // Show the tulips
+            const tulipsContainer = document.getElementById('tulipsContainer');
+            tulipsContainer.style.display = 'block'; // Display tulips
+        }
+    </script>
+
+</body>
+</html>
